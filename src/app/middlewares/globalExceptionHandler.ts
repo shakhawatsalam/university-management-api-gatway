@@ -1,17 +1,11 @@
 import { AxiosError } from 'axios';
-import { ErrorRequestHandler, NextFunction, Request, Response } from 'express';
+import { ErrorRequestHandler, Request, Response } from 'express';
 import { ZodError } from 'zod';
 import config from '../../config';
 import ApiError from '../../errors/apiError';
 import handleZodError from '../../errors/handleZodError';
-import logger from '../../shared/logger';
 
-const globalExceptionHandler: ErrorRequestHandler = (
-  error,
-  req: Request,
-  res: Response,
-  next: NextFunction
-) => {
+const globalExceptionHandler: ErrorRequestHandler = (error, req: Request, res: Response) => {
   let errorMessages: {
     path: string;
     message: string;

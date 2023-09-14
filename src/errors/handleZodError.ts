@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { IGenericErrorResponse } from '../interfaces/common';
 
 export default function handleZodError(error: any): IGenericErrorResponse {
