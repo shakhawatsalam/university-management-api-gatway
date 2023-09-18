@@ -31,7 +31,7 @@ const auth =
       resolve(verifiedUser);
     })
       .then(() => next())
-      .catch((err) => next(err));
+      .catch(err => next(err));
   };
 
 export default auth;

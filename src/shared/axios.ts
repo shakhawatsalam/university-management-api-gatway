@@ -11,19 +11,19 @@ const HttpService = (baseUrl: string): AxiosInstance => {
   });
 
   instance.interceptors.request.use(
-    (config) => {
+    config => {
       return config;
     },
-    (error) => {
+    error => {
       return error;
     }
   );
 
   instance.interceptors.response.use(
-    (response) => {
+    response => {
       return response.data;
     },
-    (error) => {
+    error => {
       return Promise.reject(error);
     }
   );

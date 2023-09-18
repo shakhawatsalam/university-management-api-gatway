@@ -9,7 +9,7 @@ const envVarsZodSchema = z.object({
   PORT: z
     .string()
     .default('3030')
-    .refine((val) => Number(val)),
+    .refine(val => Number(val)),
   JWT_SECRET: z.string(),
   REDIS_URL: z.string(),
   AUTH_SERVICE_URL: z.string(),
