@@ -1,11 +1,16 @@
 import { AxiosError } from 'axios';
-import { ErrorRequestHandler, Request, Response } from 'express';
+import { ErrorRequestHandler, NextFunction, Request, Response } from 'express';
 import { ZodError } from 'zod';
 import config from '../../config';
 import ApiError from '../../errors/apiError';
 import handleZodError from '../../errors/handleZodError';
 
-const globalExceptionHandler: ErrorRequestHandler = (error, req: Request, res: Response) => {
+const globalExceptionHandler: ErrorRequestHandler = (
+  error,
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
   let errorMessages: {
     path: string;
     message: string;
@@ -52,6 +57,8 @@ const globalExceptionHandler: ErrorRequestHandler = (error, req: Request, res: R
     errorMessages,
     stack: config.env !== 'production' ? error?.stack : undefined
   });
+
+  next();
 };
 
 export default globalExceptionHandler;
