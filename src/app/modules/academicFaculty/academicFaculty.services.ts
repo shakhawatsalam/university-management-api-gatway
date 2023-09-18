@@ -48,7 +48,6 @@ const updateOneIntoDB = async (req: Request): Promise<IGenericResponse> => {
     `/academic-faculties/${id}`,
     req.body,
     {
-      params: req.query,
       headers: {
         Authorization: req.headers.authorization
       }
