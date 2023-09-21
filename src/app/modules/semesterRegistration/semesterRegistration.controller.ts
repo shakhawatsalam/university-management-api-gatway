@@ -47,10 +47,80 @@ const updateOneIntoDB = async (req: Request, res: Response, next: NextFunction) 
   }
 };
 
+const getMyRegistration = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const result = await SemesterRegistrationService.getMyRegistration(req);
+    sendResponse(res, result);
+  } catch (error) {
+    next(error);
+  }
+};
+
+const startRegistration = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const result = await SemesterRegistrationService.startRegistration(req);
+    sendResponse(res, result);
+  } catch (error) {
+    next(error);
+  }
+};
+
+const mySemesterRegistrationCourses = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const result = await SemesterRegistrationService.mySemesterRegistrationCourses(req);
+    sendResponse(res, result);
+  } catch (error) {
+    next(error);
+  }
+};
+
+const enrollIntoCourse = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const result = await SemesterRegistrationService.enrollIntoCourse(req);
+    sendResponse(res, result);
+  } catch (error) {
+    next(error);
+  }
+};
+
+const withDrawFromCourse = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const result = await SemesterRegistrationService.withDrawFromCourse(req);
+    sendResponse(res, result);
+  } catch (error) {
+    next(error);
+  }
+};
+
+const confirmRegistration = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const result = await SemesterRegistrationService.confirmRegistration(req);
+    sendResponse(res, result);
+  } catch (error) {
+    next(error);
+  }
+};
+
+const startNewSemester = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const result = await SemesterRegistrationService.startNewSemester(req);
+    sendResponse(res, result);
+  } catch (error) {
+    next(error);
+  }
+};
+
 export const SemesterRegistrationController = {
   insertIntoDB,
   getAllFromDB,
   getByIdFromDb,
   deleteByIdFromDb,
-  updateOneIntoDB
+  updateOneIntoDB,
+  getMyRegistration,
+  startRegistration,
+  mySemesterRegistrationCourses,
+  enrollIntoCourse,
+  withDrawFromCourse,
+  confirmRegistration,
+  startNewSemester
 };
